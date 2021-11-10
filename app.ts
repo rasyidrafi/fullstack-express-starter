@@ -24,11 +24,18 @@ app.set("views", path.join(__dirname, "views"));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 import { authMiddleware } from "./src/middleware";
+import autoroutes from 'express-automatic-routes';
+
+// auth routes
+autoroutes(app, {
+  dir: path.join(__dirname, "src/auth"),
+  log: NODE_ENV != "production",
+});
+  
 
 // authentication middleware
 app.use("*", authMiddleware);
 
-import autoroutes from 'express-automatic-routes';
 autoroutes(app, {
   dir: path.join(__dirname, "src/routes"),
   log: NODE_ENV != "production",

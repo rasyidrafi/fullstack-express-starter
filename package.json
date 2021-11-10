@@ -4,7 +4,7 @@
   "description": "S4AC Organization WebApp",
   "main": "app.js",
   "scripts": {
-    "start": "ts-node-dev ./app.ts",
+    "dev": "ts-node-dev ./app.ts",
     "test": "ts-node-dev ./src/routing.ts"
   },
   "author": "Rasyid",
